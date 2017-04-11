@@ -1,0 +1,20 @@
+---
+resources:
+  - name: pcfdemo
+    type: git
+    source:
+      uri: {{github-uri}}
+      branch: {{github-branch}}
+
+jobs:
+  - name: unit-test
+    public: true
+    plan:
+      - get: pcfdemo
+        trigger: true
+      - task: unit
+        file: pcfdemo/ci/tasks/unit.yml
+        params: &MAVENPARAMS
+          MAVEN_OPTS: {{maven-opts}}
+          MAVEN_CONFIG: {{maven-config}}
+
