@@ -4,7 +4,7 @@
 inputDir=  outputDir=  inputManifest=  versionFile=  artifactId=  packaging=
 
 # optional
-hostname=$CF_MANIFEST_HOST # default to env variable from pipelines
+hostname=$CF_MANIFEST_HOST # default to env variable from pipeline
 
 while [ $# -gt 0 ]; do
   case $1 in
